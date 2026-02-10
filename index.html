@@ -3,883 +3,688 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>北の大地 — 北海道 6泊7日</title>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Kaisei+Decol:wght@400;700&family=M+PLUS+Rounded+1c:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<title>THE NORTHERN TRAIL — 北海道グランドツーリング</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=Oswald:wght@300;500;700&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --forest:#1a3a2a;--forest-deep:#0f2419;--forest-mid:#2a5a3e;
-  --snow:#faf8f5;--snow-warm:#f5f0e8;--cream:#ede6d8;
-  --lavender:#9b7ec8;--lavender-soft:#c4aee0;--lavender-bg:rgba(155,126,200,0.08);
-  --wood:#8b6f47;--wood-light:#c4a46d;--wood-dark:#5c4a2f;
-  --volcanic:#d4553a;--volcanic-glow:#e8734f;
-  --ice:#a8d8ea;--ice-deep:#5ba4c9;
-  --gold:#f5c518;--gold-light:#ffe066;
-  --text-dark:#2c2416;--text-mid:#5c5347;--text-light:#8a7f72;
-  --card-bg:rgba(255,255,255,0.92);--card-border:rgba(139,111,71,0.12);
-  --shadow:0 4px 24px rgba(15,36,25,0.06);
-  --shadow-lg:0 8px 40px rgba(15,36,25,0.1);
+:root {
+    --forest-deep: #0f2419;
+    --forest-mid: #1a3a2a;
+    --forest-lite: #2a5a3e;
+    --snow: #f8fcfd;
+    --snow-warm: #f4f0ea;
+    --accent-gold: #c6a868;
+    --accent-orange: #d4553a;
+    --ice-blue: #a8d8ea;
+    --text-main: #1a1a1a;
+    --text-sub: #555555;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.05);
+    --shadow-sharp: 0 4px 12px rgba(15, 36, 25, 0.08);
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:"Zen Maru Gothic",sans-serif;background:var(--snow);color:var(--text-dark);line-height:1.8;overflow-x:hidden;-webkit-tap-highlight-color:rgba(26,58,42,0.08)}
-a,button{touch-action:manipulation}
 
-/* HERO */
-.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem;overflow:hidden;background:linear-gradient(175deg,var(--forest-deep) 0%,var(--forest) 40%,var(--forest-mid) 70%,#3d7a5a 100%)}
-.hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:160px;background:var(--snow);clip-path:polygon(0 60%,15% 40%,25% 70%,40% 30%,55% 55%,70% 20%,85% 50%,100% 25%,100% 100%,0 100%);z-index:1}
-.hero-content{position:relative;z-index:2;max-width:700px}
-.hero-tag{font-size:.8rem;letter-spacing:.4em;color:var(--ice);margin-bottom:2rem;opacity:0;animation:fadeUp .8s .3s forwards}
-.hero-title{font-family:"Kaisei Decol",serif;font-size:clamp(3rem,9vw,6rem);font-weight:700;color:white;line-height:1.1;margin-bottom:.3rem;opacity:0;animation:fadeUp .8s .5s forwards;text-shadow:0 4px 30px rgba(0,0,0,0.3)}
-.hero-sub{font-family:"Kaisei Decol",serif;font-size:clamp(1rem,2.5vw,1.4rem);color:var(--ice);margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .7s forwards}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+    font-family: "Zen Maru Gothic", sans-serif;
+    background-color: var(--snow);
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(var(--forest-lite) 0.5px, transparent 0.5px),
+        radial-gradient(var(--forest-lite) 0.5px, var(--snow) 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    background-attachment: fixed; /* Parallax feel */
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3 { font-family: "Kaisei Decol", serif; letter-spacing: 0.05em; }
+.eng-font { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
+.num-font { font-family: "Oswald", sans-serif; }
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: linear-gradient(160deg, var(--forest-deep), var(--forest-mid));
+    overflow: hidden;
+}
+.hero::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Texture */
+    opacity: 0.1; pointer-events: none;
+}
+.hero-content { z-index: 2; position: relative; padding: 2rem; mix-blend-mode: overlay; opacity: 0; animation: fadeUp 1s ease forwards 0.2s; }
+.hero-label { font-size: 0.9rem; color: var(--accent-gold); margin-bottom: 1rem; display: block; }
+.hero-title {
+    font-size: clamp(3.5rem, 12vw, 7rem);
+    line-height: 0.9;
+    margin-bottom: 1rem;
+    background: linear-gradient(to bottom, #fff, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.hero-sub { font-size: 1.1rem; opacity: 0.9; letter-spacing: 0.2em; }
 
 /* COUNTDOWN */
-.countdown-box{background:rgba(0,0,0,0.3);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:1rem 1.5rem;margin-bottom:2.5rem;display:inline-flex;gap:1.5rem;opacity:0;animation:fadeUp .8s .8s forwards}
-.cd-item{display:flex;flex-direction:column;align-items:center}
-.cd-num{font-family:"M PLUS Rounded 1c",sans-serif;font-size:1.8rem;font-weight:800;color:white;line-height:1}
-.cd-label{font-size:.6rem;color:var(--ice);letter-spacing:.1em;margin-top:.2rem}
-
-.hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .9s forwards}
-.hero-stat{background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:1rem 1.5rem;min-width:100px}
-.hero-stat-num{font-family:"M PLUS Rounded 1c",sans-serif;font-size:1.8rem;font-weight:800;color:white;line-height:1}
-.hero-stat-label{font-size:.65rem;color:var(--ice);letter-spacing:.15em;margin-top:.3rem}
-.scroll-arrow{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;opacity:0;animation:fadeUp .8s 1.2s forwards}
-.scroll-arrow span{display:block;width:24px;height:24px;border-right:2px solid white;border-bottom:2px solid white;transform:rotate(45deg);animation:bounce 2s infinite;opacity:.5}
-@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(8px)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
-
-/* NAV & FILTER */
-.day-nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--card-border);overflow-x:auto;-webkit-overflow-scrolling:touch}
-.day-nav::-webkit-scrollbar{height:0}
-.day-nav-inner{display:flex;max-width:1100px;margin:0 auto;padding:0 .5rem}
-.day-nav a{flex-shrink:0;padding:.9rem 1rem;text-decoration:none;color:var(--text-light);font-size:.78rem;font-weight:500;white-space:nowrap;border-bottom:2.5px solid transparent;transition:all .3s}
-.day-nav a:hover{color:var(--forest)}
-.day-nav a.active{color:var(--forest);border-bottom-color:var(--forest);font-weight:700}
-.filter-bar{position:sticky;top:48px;z-index:99;background:rgba(250,248,245,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--card-border);padding:.6rem 1rem;display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap}
-.filter-btn{border:none;background:var(--cream);color:var(--text-mid);font-family:inherit;font-size:.75rem;font-weight:600;padding:.4rem .9rem;border-radius:999px;cursor:pointer;transition:all .2s}
-.filter-btn:hover{background:var(--forest-mid);color:white}
-.filter-btn.active{background:var(--forest);color:white}
-
-.content-wrap{max-width:900px;margin:0 auto;padding:0 1.2rem}
-.route-section,.day-section,.weather-section,.gear-section,.tips-section,.mission-section,.music-section{padding:3.5rem 0 2rem;scroll-margin-top:100px}
-.section-header{text-align:center;margin-bottom:2.5rem}
-.section-header h2{font-family:"Kaisei Decol",serif;font-size:clamp(1.5rem,4vw,2rem);font-weight:700;color:var(--forest-deep);margin-bottom:.3rem}
-.section-header p{color:var(--text-light);font-size:.85rem}
-.mountain-divider{height:40px;background:var(--snow);position:relative}
-.mountain-divider::after{content:"";display:block;height:2px;margin:0 auto;width:120px;background:linear-gradient(90deg,transparent,var(--cream),var(--wood-light),var(--cream),transparent);position:relative;top:50%}
-.route-embed{border-radius:20px;overflow:hidden;border:2px solid var(--card-border);aspect-ratio:16/9;max-height:450px;box-shadow:var(--shadow)}
-.route-embed iframe{width:100%;height:100%;border:none}
-
-.day-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:2px solid var(--cream)}
-.day-circle{flex-shrink:0;width:70px;height:70px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;font-family:"M PLUS Rounded 1c",sans-serif}
-.day-circle.c-forest{background:linear-gradient(135deg,var(--forest),var(--forest-mid))}
-.day-circle.c-ice{background:linear-gradient(135deg,var(--ice-deep),var(--ice))}
-.day-circle.c-lavender{background:linear-gradient(135deg,var(--lavender),var(--lavender-soft))}
-.day-circle.c-volcanic{background:linear-gradient(135deg,var(--volcanic),var(--volcanic-glow))}
-.day-circle.c-wood{background:linear-gradient(135deg,var(--wood-dark),var(--wood))}
-.day-circle-num{font-size:1.8rem;font-weight:800;line-height:1}
-.day-circle-label{font-size:.55rem;letter-spacing:.1em;opacity:.8}
-.day-title{font-family:"Kaisei Decol",serif;font-size:clamp(1.2rem,3vw,1.6rem);font-weight:700;color:var(--forest-deep);line-height:1.3}
-.day-date{font-size:.82rem;color:var(--text-light);margin-top:.1rem}
-.timeline{position:relative;padding-left:2.8rem}
-.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--forest-mid),var(--cream),transparent);border-radius:1px}
-.tl-item{position:relative;margin-bottom:1.8rem;opacity:0;transform:translateY(15px);transition:opacity .5s,transform .5s}
-.tl-item.visible{opacity:1;transform:translateY(0)}
-.tl-item::before{content:"";position:absolute;left:-2.8rem;top:7px;width:10px;height:10px;border-radius:50%;background:var(--forest-mid);border:3px solid var(--snow);z-index:1;box-shadow:0 0 0 2px var(--forest-mid)}
-.tl-item.highlight::before{width:14px;height:14px;left:calc(-2.8rem - 2px);background:var(--volcanic);border-color:var(--snow);box-shadow:0 0 0 2px var(--volcanic),0 0 12px rgba(212,85,58,0.3)}
-.tl-time{font-family:"M PLUS Rounded 1c",sans-serif;font-size:.78rem;font-weight:700;color:var(--forest-mid);letter-spacing:.05em;margin-bottom:.2rem}
-.tl-title{font-weight:700;font-size:1.05rem;color:var(--forest-deep);margin-bottom:.3rem}
-.tl-desc{font-size:.87rem;color:var(--text-mid);line-height:1.8}
-
-.spot-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:1.2rem 1.4rem;margin-top:.8rem;box-shadow:var(--shadow);transition:all .3s;position:relative;overflow:hidden}
-.spot-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
-.spot-card[data-type="food"]{border-left:4px solid var(--volcanic)}
-.spot-card[data-type="spot"]{border-left:4px solid var(--ice-deep)}
-.spot-card[data-type="stay"]{border-left:4px solid var(--lavender)}
-.spot-card[data-type="onsen"]{border-left:4px solid var(--forest-mid)}
-.spot-card[data-type="mission"]{border-left:4px solid var(--volcanic-glow)}
-.spot-card[data-type="shop"]{border-left:4px solid var(--wood)}
-.spot-name{font-weight:700;color:var(--forest-deep);font-size:1rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
-.spot-tag{display:inline-flex;align-items:center;gap:.2rem;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:8px}
-.tag-food{background:rgba(212,85,58,0.1);color:var(--volcanic)}
-.tag-spot{background:rgba(91,164,201,0.1);color:var(--ice-deep)}
-.tag-stay{background:rgba(155,126,200,0.1);color:var(--lavender)}
-.tag-onsen{background:rgba(42,90,62,0.08);color:var(--forest-mid)}
-.tag-mission{background:rgba(232,115,79,0.1);color:var(--volcanic-glow)}
-.tag-shop{background:rgba(139,111,71,0.1);color:var(--wood)}
-.spot-info{font-size:.82rem;color:var(--text-mid);line-height:1.8;margin-top:.5rem}
-.spot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.4rem .8rem;margin-top:.6rem;padding:.7rem;background:var(--snow-warm);border-radius:10px}
-.spot-grid-item{display:flex;align-items:flex-start;gap:.4rem;font-size:.78rem;color:var(--text-mid)}
-.sg-icon{flex-shrink:0;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.75rem}
-.sg-loc{background:rgba(91,164,201,0.12)}.sg-time{background:rgba(42,90,62,0.08)}.sg-price{background:rgba(212,85,58,0.08)}.sg-phone{background:rgba(155,126,200,0.08)}
-.spot-links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.6rem}
-.spot-link{display:inline-flex;align-items:center;gap:.3rem;color:var(--forest);text-decoration:none;font-size:.78rem;font-weight:600;padding:.3rem .7rem;background:rgba(42,90,62,0.06);border-radius:8px;transition:all .2s}
-.spot-link:hover{background:var(--forest);color:white}
-
-.info-box{background:linear-gradient(135deg,rgba(168,216,234,0.12),rgba(42,90,62,0.06));border:1px solid rgba(91,164,201,0.15);border-radius:14px;padding:1.1rem 1.3rem;margin:.8rem 0}
-.info-box .ib-title{font-weight:700;color:var(--ice-deep);font-size:.85rem;margin-bottom:.3rem}
-.info-box .ib-text{font-size:.82rem;color:var(--text-mid);line-height:1.7}
-.warn-box{background:linear-gradient(135deg,rgba(212,85,58,0.06),rgba(251,191,36,0.04));border:1px solid rgba(212,85,58,0.12);border-radius:14px;padding:1.1rem 1.3rem;margin:.8rem 0}
-.warn-box .wb-title{font-weight:700;color:var(--volcanic);font-size:.85rem;margin-bottom:.3rem}
-.warn-box .wb-text{font-size:.82rem;color:var(--text-mid);line-height:1.7}
-.highlight-banner{background:linear-gradient(135deg,var(--forest-deep),var(--forest));border-radius:18px;padding:1.5rem;margin-bottom:2rem;display:flex;align-items:center;gap:1.2rem;color:white;box-shadow:var(--shadow-lg)}
-.highlight-banner .hb-icon{font-size:2.2rem;flex-shrink:0}
-.highlight-banner .hb-label{font-size:.65rem;font-weight:700;color:var(--ice);letter-spacing:.15em;margin-bottom:.2rem}
-.highlight-banner .hb-text{font-size:.9rem;color:rgba(255,255,255,0.85);line-height:1.6}
-
-.trek-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin:1rem 0}
-.trek-stat{background:white;border:1px solid var(--card-border);border-radius:14px;padding:1rem .5rem;text-align:center;box-shadow:var(--shadow)}
-.trek-stat-val{font-family:"M PLUS Rounded 1c",sans-serif;font-size:1.2rem;font-weight:800;color:var(--forest)}
-.trek-stat-label{font-size:.65rem;color:var(--text-light);margin-top:.15rem}
-
-.weather-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:.8rem}
-.weather-card{background:white;border:1px solid var(--card-border);border-radius:16px;padding:1rem .8rem;text-align:center;box-shadow:var(--shadow);transition:all .3s}
-.weather-card:hover{transform:translateY(-3px)}
-.weather-date{font-size:.7rem;color:var(--text-light)}
-.weather-day{font-weight:700;font-size:.82rem;color:var(--forest-deep);margin-bottom:.4rem}
-.weather-icon{font-size:2rem;margin-bottom:.3rem}
-.weather-temp{font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800}
-.weather-high{color:var(--volcanic);font-size:1.15rem}
-.weather-low{color:var(--ice-deep);font-size:.85rem}
-.weather-slash{color:var(--text-light);margin:0 .15rem;font-size:.8rem}
-.weather-note{font-size:.65rem;color:var(--text-light);margin-top:.3rem}
-
-.checklist-category{margin-bottom:1.5rem}
-.checklist-category h3{font-family:"Kaisei Decol",serif;font-size:.95rem;color:var(--forest);margin-bottom:.7rem;padding-left:.3rem}
-.checklist{list-style:none}
-.checklist li{background:white;border:1px solid var(--card-border);border-radius:12px;padding:.8rem 1rem;margin-bottom:.5rem;display:flex;gap:.8rem;align-items:flex-start;font-size:.85rem;box-shadow:0 2px 8px rgba(0,0,0,0.03);cursor:pointer;transition:all .2s;user-select:none}
-.checklist li:hover{box-shadow:var(--shadow)}
-.checklist li.checked{opacity:.45;background:var(--snow-warm)}
-.checklist li.checked .cl-check{background:var(--forest);border-color:var(--forest)}
-.checklist li.checked .cl-check::after{content:"\2713";color:white;font-size:.7rem;font-weight:700}
-.cl-check{flex-shrink:0;width:22px;height:22px;border:2px solid var(--card-border);border-radius:6px;display:flex;align-items:center;justify-content:center;transition:all .2s;margin-top:.1rem}
-.cl-icon{font-size:1.2rem;flex-shrink:0}
-.cl-content strong{color:var(--forest-deep)}
-.cl-content .cl-sub{color:var(--text-light);font-size:.78rem;display:block;margin-top:.15rem}
-.checklist-progress{background:var(--cream);border-radius:12px;padding:.6rem 1rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;font-size:.82rem;color:var(--text-mid)}
-.progress-bar{flex:1;height:6px;background:var(--cream);border-radius:3px;overflow:hidden;border:1px solid var(--card-border)}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--forest),var(--forest-mid));border-radius:3px;transition:width .4s;width:0}
-
-/* MISSION CSS */
-.mission-progress-bar {
-  background: var(--cream); border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem; text-align: center;
+.countdown-container {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    opacity: 0; animation: fadeUp 1s ease forwards 0.6s;
 }
-.mission-pb-bg {
-  height: 10px; background: rgba(0,0,0,0.05); border-radius: 5px; overflow: hidden; margin-top: .5rem;
+.cd-box { text-align: center; }
+.cd-num { font-size: 2rem; font-weight: 700; line-height: 1; display: block; }
+.cd-label { font-size: 0.6rem; opacity: 0.7; }
+
+/* NAVIGATION */
+.nav-sticky {
+    position: sticky; top: 20px; z-index: 100;
+    margin: 0 auto; width: 95%; max-width: 600px;
 }
-.mission-pb-fill {
-  height: 100%; background: linear-gradient(90deg, var(--gold), var(--volcanic-glow)); width: 0%; transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+.nav-inner {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: var(--shadow-soft);
 }
-.mission-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .8rem; }
-.mission-card {
-  background: white; border: 2px solid var(--card-border); border-radius: 14px; padding: 1.2rem 1rem;
-  text-align: center; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden;
-  box-shadow: var(--shadow); user-select: none;
+.nav-item {
+    flex: 1; text-align: center; text-decoration: none;
+    color: var(--text-sub); font-size: 0.75rem; font-weight: 700;
+    padding: 0.6rem 0; border-radius: 40px; transition: all 0.3s;
 }
-.mission-card:active { transform: scale(0.96); }
-.mission-card.completed {
-  border-color: var(--gold); background: linear-gradient(135deg, #fffbf0, #fff);
-  box-shadow: 0 4px 15px rgba(245, 197, 24, 0.3);
+.nav-item.active { background: var(--forest-mid); color: white; box-shadow: 0 4px 10px rgba(26,58,42,0.3); }
+
+/* LAYOUT UTILS */
+.container { max-width: 1000px; margin: 0 auto; padding: 4rem 1.5rem; }
+.section-title {
+    text-align: center; margin-bottom: 3rem; position: relative;
+    font-size: 2rem; color: var(--forest-deep);
 }
-.mission-icon { font-size: 2rem; margin-bottom: .5rem; filter: grayscale(1); transition: filter .3s; }
-.mission-card.completed .mission-icon { filter: grayscale(0); transform: scale(1.1); }
-.mission-title { font-weight: 700; font-size: .85rem; color: var(--text-mid); margin-bottom: .2rem; }
-.mission-desc { font-size: .7rem; color: var(--text-light); line-height: 1.4; }
-.mission-stamp {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0);
-  width: 80%; padding-top: 80%; border-radius: 50%; border: 3px solid var(--volcanic);
-  opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: none;
-  display: flex; align-items: center; justify-content: center;
+.section-title::after {
+    content: ''; display: block; width: 60px; height: 3px;
+    background: var(--accent-gold); margin: 1rem auto 0;
 }
-.mission-stamp::after {
-  content: "COMPLETE"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-15deg);
-  font-family: 'Kaisei Decol', serif; font-weight: 700; font-size: clamp(12px, 3vw, 16px); color: var(--volcanic); white-space: nowrap;
-}
-.mission-card.completed .mission-stamp { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
-
-.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1rem}
-.tip-card{background:white;border:1px solid var(--card-border);border-radius:16px;padding:1.3rem 1.4rem;box-shadow:var(--shadow)}
-.tip-card h3{font-size:.95rem;font-weight:700;color:var(--forest-deep);margin-bottom:.5rem}
-.tip-card p{font-size:.82rem;color:var(--text-mid);line-height:1.7}
-.emergency-card{background:white;border:2px solid rgba(212,85,58,0.15);border-radius:16px;padding:1.5rem;margin-top:1.5rem;box-shadow:var(--shadow)}
-.emergency-card h3{font-size:.95rem;font-weight:700;color:var(--volcanic);margin-bottom:.8rem}
-.emergency-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.5rem}
-.emergency-item{font-size:.82rem;color:var(--text-mid);padding:.4rem 0}
-.emergency-item strong{color:var(--forest-deep)}
-.footer{text-align:center;padding:4rem 1.5rem 3rem;background:var(--forest-deep);color:rgba(255,255,255,0.6);font-size:.8rem;position:relative;overflow:hidden}
-.footer::before{content:"";position:absolute;top:0;left:0;right:0;height:40px;background:var(--snow);clip-path:polygon(0 0,100% 0,100% 100%,80% 40%,60% 100%,40% 50%,20% 100%,0 60%)}
-.footer-title{font-family:"Kaisei Decol",serif;font-size:1.4rem;color:white;margin-bottom:.5rem}
-
-.mini-map{border-radius:12px;overflow:hidden;border:1px solid var(--card-border);margin-top:.6rem;box-shadow:var(--shadow);height:180px}
-.mini-map iframe{width:100%;height:100%;border:none}
-/* ===== MOBILE FIRST OVERRIDES ===== */
-@media(max-width:768px){
-  body{font-size:15px;-webkit-text-size-adjust:100%}
-  .content-wrap{padding:0 1rem}
-
-  /* Hero */
-  .hero{min-height:85vh;padding:1.5rem 1rem}
-  .hero::after{height:80px}
-  .hero-tag{font-size:.7rem;letter-spacing:.3em;margin-bottom:1.2rem}
-  .hero-title{font-size:clamp(2.4rem,12vw,3.5rem)}
-  .hero-sub{font-size:1rem;margin-bottom:2rem}
-  .hero-stats{gap:.6rem;justify-content:center}
-  .hero-stat{padding:.7rem 1rem;min-width:72px;border-radius:12px}
-  .hero-stat-num{font-size:1.3rem}
-  .hero-stat-label{font-size:.55rem}
-  .scroll-arrow{bottom:1.5rem}
-
-  /* Countdown */
-  .countdown-box{padding:.8rem 1rem;gap:1rem;margin-bottom:2rem}
-  .cd-num{font-size:1.5rem}
-
-  /* Nav - larger touch targets */
-  .day-nav a{padding:.75rem .8rem;font-size:.72rem;min-height:44px;display:flex;align-items:center}
-  .day-nav-inner{gap:0;padding:0 .3rem}
-
-  /* Filter - scrollable row */
-  .filter-bar{top:42px;padding:.5rem .8rem;gap:.3rem;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch}
-  .filter-bar::-webkit-scrollbar{height:0}
-  .filter-btn{flex-shrink:0;padding:.45rem .8rem;font-size:.72rem;min-height:36px}
-
-  /* Sections */
-  .route-section,.day-section,.weather-section,.gear-section,.tips-section,.mission-section,.music-section{padding:2.5rem 0 1.5rem}
-  .section-header{margin-bottom:1.8rem}
-  .section-header h2{font-size:1.4rem}
-  .section-header p{font-size:.8rem}
-  .mountain-divider{height:24px}
-
-  /* Route map */
-  .mini-map{height:150px;border-radius:10px}
-  .route-embed{aspect-ratio:4/3;border-radius:14px;border-width:1px}
-
-  /* Day header */
-  .day-header{flex-direction:column;align-items:flex-start;gap:.8rem;padding-bottom:1rem;margin-bottom:1.5rem}
-  .day-circle{width:56px;height:56px}
-  .day-circle-num{font-size:1.5rem}
-  .day-circle-label{font-size:.5rem}
-  .day-title{font-size:1.2rem}
-  .day-date{font-size:.78rem}
-
-  /* Timeline */
-  .timeline{padding-left:2.2rem}
-  .timeline::before{left:7px}
-  .tl-item::before{left:-2.2rem;width:8px;height:8px}
-  .tl-item.highlight::before{width:12px;height:12px;left:calc(-2.2rem - 2px)}
-  .tl-item{margin-bottom:1.5rem}
-  .tl-time{font-size:.75rem}
-  .tl-title{font-size:1rem}
-  .tl-desc{font-size:.84rem}
-
-  /* Spot cards - full width, touch friendly */
-  .spot-card{padding:1rem 1.1rem;border-radius:14px;margin-top:.6rem}
-  .spot-name{font-size:.95rem;gap:.4rem}
-  .spot-tag{font-size:.6rem;padding:.18rem .5rem}
-  .spot-info{font-size:.8rem;margin-top:.4rem}
-  .spot-grid{grid-template-columns:1fr;gap:.3rem;padding:.6rem;margin-top:.5rem}
-  .spot-grid-item{font-size:.76rem}
-  .sg-icon{width:20px;height:20px;font-size:.7rem}
-  .spot-links{gap:.5rem;margin-top:.5rem}
-  .spot-link{padding:.4rem .8rem;font-size:.75rem;min-height:36px}
-
-  /* Info/Warn boxes */
-  .info-box,.warn-box{padding:1rem 1.1rem;border-radius:12px}
-  .info-box .ib-title,.warn-box .wb-title{font-size:.82rem}
-  .info-box .ib-text,.warn-box .wb-text{font-size:.8rem}
-
-  /* Highlight banner */
-  .highlight-banner{flex-direction:column;text-align:center;gap:.8rem;padding:1.2rem;border-radius:14px}
-  .highlight-banner .hb-icon{font-size:1.8rem}
-  .highlight-banner .hb-text{font-size:.84rem}
-
-  /* Trek stats */
-  .trek-stats{grid-template-columns:repeat(2,1fr);gap:.5rem}
-  .trek-stat{padding:.8rem .4rem;border-radius:12px}
-  .trek-stat-val{font-size:1.1rem}
-  .trek-stat-label{font-size:.6rem}
-
-  /* Weather */
-  .weather-grid{grid-template-columns:repeat(auto-fill,minmax(95px,1fr));gap:.5rem}
-  .weather-card{padding:.8rem .5rem;border-radius:12px}
-  .weather-day{font-size:.75rem}
-  .weather-icon{font-size:1.6rem;margin-bottom:.2rem}
-  .weather-high{font-size:1rem}
-  .weather-low{font-size:.78rem}
-
-  /* Checklist - larger touch targets */
-  .checklist-progress{padding:.5rem .8rem;font-size:.78rem;border-radius:10px}
-  .checklist-category h3{font-size:.9rem}
-  .checklist li{padding:.7rem .8rem;border-radius:10px;margin-bottom:.4rem;min-height:48px;gap:.6rem}
-  .cl-check{width:24px;height:24px;border-radius:7px}
-  .cl-icon{font-size:1.1rem}
-  .cl-content{font-size:.82rem}
-  .cl-content strong{font-size:.84rem}
-  .cl-content .cl-sub{font-size:.74rem;margin-top:.1rem}
-  
-  /* Missions */
-  .mission-grid{grid-template-columns:repeat(2,1fr);gap:.6rem}
-  .mission-card{padding:1rem .8rem;min-height:120px}
-  .mission-icon{font-size:1.8rem}
-  .mission-title{font-size:.8rem}
-
-  /* Tips */
-  .tips-grid{grid-template-columns:1fr;gap:.8rem}
-  .tip-card{padding:1.1rem 1.2rem;border-radius:14px}
-  .tip-card h3{font-size:.9rem;margin-bottom:.4rem}
-  .tip-card p{font-size:.8rem}
-  .emergency-card{padding:1.2rem}
-  .emergency-grid{grid-template-columns:1fr}
-  .emergency-item{font-size:.8rem;padding:.3rem 0}
-
-  /* Footer */
-  .footer{padding:3rem 1rem 2rem}
-  .footer-title{font-size:1.2rem}
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 2rem;
 }
 
-/* ===== SMALL PHONES ===== */
-@media(max-width:380px){
-  .hero-title{font-size:2.2rem}
-  .hero-stats{gap:.4rem}
-  .hero-stat{padding:.6rem .7rem;min-width:65px}
-  .hero-stat-num{font-size:1.1rem}
-  .day-nav a{padding:.65rem .6rem;font-size:.68rem}
-  .trek-stats{grid-template-columns:repeat(2,1fr);gap:.4rem}
-  .weather-grid{grid-template-columns:repeat(auto-fill,minmax(85px,1fr))}
-  .spot-grid-item{font-size:.72rem}
+/* MAP EMBED STYLES */
+.map-frame {
+    width: 100%; aspect-ratio: 16/9; border-radius: 16px; border: none;
+    box-shadow: var(--shadow-sharp); filter: grayscale(20%) contrast(1.1);
+    transition: filter 0.3s;
+}
+.map-frame:hover { filter: grayscale(0%); }
+.map-caption { font-size: 0.8rem; text-align: center; margin-top: 0.5rem; color: var(--text-sub); display: flex; align-items: center; justify-content: center; gap: 0.5rem;}
+.map-caption::before { content: '📍'; }
+
+/* TIMELINE (Vertical) */
+.timeline { position: relative; padding-left: 20px; }
+.timeline::before {
+    content: ''; position: absolute; left: 0; top: 10px; bottom: 0;
+    width: 2px; background: rgba(0,0,0,0.1);
+}
+.tl-event { position: relative; margin-bottom: 3rem; padding-left: 1.5rem; }
+.tl-dot {
+    position: absolute; left: -6px; top: 5px;
+    width: 14px; height: 14px; background: var(--forest-mid);
+    border-radius: 50%; border: 3px solid var(--snow);
+    box-shadow: 0 0 0 2px var(--forest-mid);
+}
+.tl-highlight .tl-dot { background: var(--accent-orange); box-shadow: 0 0 0 2px var(--accent-orange); }
+.tl-time { font-weight: 700; color: var(--accent-gold); font-size: 0.9rem; margin-bottom: 0.2rem; display: block; }
+.tl-head { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.3; }
+.tl-desc { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 1rem; }
+
+/* BINGO GRID (4x4) */
+.bingo-wrapper {
+    background: var(--forest-deep);
+    border-radius: 24px;
+    padding: 2rem 1rem;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.bingo-wrapper::before {
+    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 10px, transparent 10px, transparent 20px);
+    pointer-events: none;
+}
+.bingo-header { margin-bottom: 1.5rem; }
+.bingo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.bingo-cell {
+    background: rgba(255,255,255,0.1);
+    aspect-ratio: 1/1;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+.bingo-cell:active { transform: scale(0.95); }
+.bingo-icon { font-size: 1.5rem; margin-bottom: 4px; filter: grayscale(100%); transition: 0.3s; }
+.bingo-label { font-size: 0.6rem; line-height: 1.2; opacity: 0.7; }
+
+/* Bingo Active State */
+.bingo-cell.active {
+    background: var(--snow);
+    color: var(--forest-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border-color: var(--accent-gold);
+}
+.bingo-cell.active .bingo-icon { filter: grayscale(0%); transform: scale(1.1); }
+.bingo-cell.active .bingo-label { opacity: 1; font-weight: 700; }
+.bingo-stamp {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-15deg) scale(0);
+    width: 90%; height: 90%;
+    border: 2px solid var(--accent-orange);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent-orange); font-weight: 900; font-size: 0.6rem; opacity: 0;
+    transition: 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    pointer-events: none;
+}
+.bingo-cell.active .bingo-stamp { opacity: 0.8; transform: translate(-50%, -50%) rotate(-15deg) scale(1); }
+
+/* Progress Circle for Bingo */
+.progress-circle {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: conic-gradient(var(--accent-gold) var(--deg), rgba(255,255,255,0.1) 0deg);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 2rem; position: relative;
+    box-shadow: 0 0 30px rgba(198, 168, 104, 0.2);
+    transition: --deg 1s ease;
+}
+.progress-inner {
+    width: 100px; height: 100px; background: var(--forest-deep);
+    border-radius: 50%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+}
+.pg-num { font-size: 2rem; font-weight: 700; color: white; line-height: 1; }
+.pg-label { font-size: 0.6rem; color: var(--accent-gold); }
+
+/* DAY CARD & WEATHER */
+.day-card { border-left: 4px solid var(--forest-mid); overflow: hidden; }
+.day-header {
+    display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem;
+    padding-bottom: 1rem; border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+.day-num { font-size: 3rem; font-weight: 700; color: var(--forest-mid); line-height: 0.8; }
+.day-meta { flex: 1; }
+.day-title { font-size: 1.25rem; font-weight: 700; display: block; }
+.day-date { font-size: 0.85rem; color: var(--text-sub); }
+
+.weather-strip {
+    display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem;
+    scrollbar-width: none;
+}
+.w-card {
+    min-width: 100px; background: white; border-radius: 12px; padding: 1rem;
+    text-align: center; border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-sharp);
+}
+.w-icon { font-size: 1.5rem; margin: 0.5rem 0; }
+
+/* CHECKLIST */
+.cl-item {
+    display: flex; align-items: center; gap: 1rem;
+    background: white; padding: 1rem; border-radius: 12px;
+    margin-bottom: 0.8rem; cursor: pointer; transition: 0.2s;
+    border: 1px solid transparent;
+}
+.cl-item:hover { transform: translateX(5px); border-color: var(--ice-blue); }
+.cl-item.checked { opacity: 0.5; background: #eee; }
+.cl-box {
+    width: 24px; height: 24px; border: 2px solid var(--forest-lite); border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+}
+.cl-item.checked .cl-box::after { content: '✔'; font-size: 14px; color: var(--forest-lite); }
+
+/* FOOTER */
+footer {
+    background: var(--forest-deep); color: rgba(255,255,255,0.6);
+    text-align: center; padding: 4rem 1rem; margin-top: 4rem;
 }
 
-/* ===== SAFE AREA (iPhone notch) ===== */
-@supports(padding-bottom:env(safe-area-inset-bottom)){
-  .footer{padding-bottom:calc(2rem + env(safe-area-inset-bottom))}
-  .day-nav{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
-}
+/* ANIMATIONS */
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } from { opacity: 0; transform: translateY(20px); } }
 
-/* ===== TOUCH HOVER FIX ===== */
-@media(hover:none){
-  .spot-card:hover{transform:none;box-shadow:var(--shadow)}
-  .weather-card:hover{transform:none}
-  .spot-link:hover{background:rgba(42,90,62,0.06);color:var(--forest)}
-  .checklist li:hover{box-shadow:0 2px 8px rgba(0,0,0,0.03)}
-  .spot-card:active{transform:scale(0.99);transition:transform .1s}
-  .checklist li:active{transform:scale(0.98);transition:transform .1s}
-  .filter-btn:active{transform:scale(0.95)}
-  .spot-link:active{background:var(--forest);color:white}
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+    .hero-title { font-size: 3.5rem; }
+    .bingo-grid { gap: 6px; }
+    .bingo-cell { border-radius: 8px; padding: 2px; }
+    .bingo-icon { font-size: 1.2rem; }
+    .bingo-label { font-size: 0.5rem; transform: scale(0.9); }
+    .nav-inner { border-radius: 16px; flex-wrap: wrap; }
+    .nav-item { flex: 1 1 30%; font-size: 0.7rem; }
 }
-</style></head><body>
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-tag">2026.04.24 — 04.30</div>
-    <h1 class="hero-title">北の大地</h1>
-    <p class="hero-sub">歩く・走る・食う — 6泊7日</p>
-    
-    <div class="countdown-box" id="countdown">
-      <div class="cd-item"><div class="cd-num" id="cd-days">00</div><div class="cd-label">DAYS</div></div>
-      <div class="cd-item"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">HOURS</div></div>
-      <div class="cd-item"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">MINS</div></div>
-      <div class="cd-item"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">SECS</div></div>
+</style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="hero-content">
+        <span class="hero-label eng-font">HOKKAIDO GRAND TOURING</span>
+        <h1 class="hero-title eng-font">NORTH<br>TRAIL</h1>
+        <p class="hero-sub">最北と最東を制覇する6泊7日</p>
+
+        <div class="countdown-container">
+            <div class="cd-box"><span class="cd-num num-font" id="d">00</span><span class="cd-label">DAYS</span></div>
+            <div class="cd-box"><span class="cd-num num-font" id="h">00</span><span class="cd-label">HRS</span></div>
+            <div class="cd-box"><span class="cd-num num-font" id="m">00</span><span class="cd-label">MIN</span></div>
+        </div>
     </div>
+</header>
 
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">7</div><div class="hero-stat-label">DAYS</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">1,100<small style="font-size:.6em">km</small></div><div class="hero-stat-label">DRIVE</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">12.4<small style="font-size:.6em">km</small></div><div class="hero-stat-label">TREK</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">∞</div><div class="hero-stat-label">FOOD</div></div>
+<nav class="nav-sticky">
+    <div class="nav-inner">
+        <a href="#route" class="nav-item active">ROUTE</a>
+        <a href="#mission" class="nav-item">MISSION</a>
+        <a href="#schedule" class="nav-item">PLAN</a>
+        <a href="#gear" class="nav-item">GEAR</a>
     </div>
-  </div>
-  <div class="scroll-arrow"><span></span></div>
-</section>
+</nav>
 
-<nav class="day-nav"><div class="day-nav-inner">
-  <a href="#route">🗺 ルート</a>
-  <a href="#day1">D1 札幌</a><a href="#day2">D2 オロロン</a><a href="#day3">D3 礼文島</a>
-  <a href="#day4">D4 北見</a><a href="#day5">D5 釧路</a><a href="#day6">D6 帯広</a><a href="#day7">D7 帰還</a>
-  <a href="#weather">🌤 天気</a><a href="#gear">🎒 装備</a><a href="#tips">⚠ 注意</a>
-</div></nav>
+<div class="container">
 
-<div class="filter-bar" id="filterBar">
-  <button class="filter-btn active" data-filter="all">📋 すべて</button>
-  <button class="filter-btn" data-filter="food">🍖 グルメ</button>
-  <button class="filter-btn" data-filter="stay">🏨 宿泊</button>
-  <button class="filter-btn" data-filter="onsen">♨ 温泉</button>
-  <button class="filter-btn" data-filter="spot">📸 スポット</button>
-  <button class="filter-btn" data-filter="mission">🎯 ミッション</button>
+    <section id="route" class="glass-card">
+        <div class="section-title"><h3>GRAND ROUTE</h3></div>
+        <p style="text-align:center; margin-bottom:1.5rem; font-size:0.9rem;">総走行距離 約1,100km / 札幌・稚内・釧路を繋ぐ大三角形</p>
+        
+        <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1873685.679633682!2d142.5!3d43.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1715000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-caption">Route Overview: Sapporo - Wakkanai - Kitami - Kushiro</div>
+    </section>
+
+    <section id="mission">
+        <div class="bingo-wrapper">
+            <div class="bingo-header">
+                <h3 class="eng-font">MISSION BINGO</h3>
+                <p style="font-size:0.8rem; opacity:0.8;">コンプリートを目指せ</p>
+            </div>
+
+            <div class="progress-circle" id="pgCircle" style="--deg: 0deg;">
+                <div class="progress-inner">
+                    <span class="pg-num num-font" id="pgText">0%</span>
+                    <span class="pg-label">COMPLETE</span>
+                </div>
+            </div>
+
+            <div class="bingo-grid" id="bingoGrid">
+                <div class="bingo-cell" onclick="toggleBingo(0)">
+                    <div class="bingo-icon">🚉</div>
+                    <span class="bingo-label">細岡駅<br>聖地巡礼</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(1)">
+                    <div class="bingo-icon">🚩</div>
+                    <span class="bingo-label">宗谷岬<br>最北端</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(2)">
+                    <div class="bingo-icon">🌊</div>
+                    <span class="bingo-label">礼文島<br>ブルー</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(3)">
+                    <div class="bingo-icon">🍱</div>
+                    <span class="bingo-label">ウニ丼<br>完食</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(4)">
+                    <div class="bingo-icon">🏪</div>
+                    <span class="bingo-label">ホット<br>シェフ</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(5)">
+                    <div class="bingo-icon">🦌</div>
+                    <span class="bingo-label">エゾシカ<br>発見</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(6)">
+                    <div class="bingo-icon">🏔</div>
+                    <span class="bingo-label">利尻富士<br>撮影</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(7)">
+                    <div class="bingo-icon">🥩</div>
+                    <span class="bingo-label">ジンギ<br>スカン</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(8)">
+                    <div class="bingo-icon">♨</div>
+                    <span class="bingo-label">絶景<br>露天風呂</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(9)">
+                    <div class="bingo-icon">🍦</div>
+                    <span class="bingo-label">ソフト<br>クリーム</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(10)">
+                    <div class="bingo-icon">🚗</div>
+                    <span class="bingo-label">1,100km<br>走破</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(11)">
+                    <div class="bingo-icon">🔰</div>
+                    <span class="bingo-label">無事故<br>無違反</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(12)">
+                    <div class="bingo-icon">🍺</div>
+                    <span class="bingo-label">サッポロ<br>クラシック</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(13)">
+                    <div class="bingo-icon">🦊</div>
+                    <span class="bingo-label">キタキツネ<br>遭遇</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(14)">
+                    <div class="bingo-icon">🐚</div>
+                    <span class="bingo-label">白い道<br>(宗谷)</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+                <div class="bingo-cell" onclick="toggleBingo(15)">
+                    <div class="bingo-icon">🕺</div>
+                    <span class="bingo-label">ジャンプ<br>写真</span>
+                    <div class="bingo-stamp">COMPLETE</div>
+                </div>
+            </div>
+            
+            <button onclick="resetBingo()" style="background:transparent; border:none; color:rgba(255,255,255,0.5); font-size:0.7rem; margin-top:1.5rem; text-decoration:underline;">RESET PROGRESS</button>
+        </div>
+    </section>
+
+    <section id="schedule">
+        <div class="section-title"><h3>ITINERARY</h3></div>
+
+        <div class="glass-card day-card">
+            <div class="day-header">
+                <span class="day-num num-font">01</span>
+                <div class="day-meta">
+                    <span class="day-title">SAPPORO ARRIVAL</span>
+                    <span class="day-date">4.24 FRI / 札幌前夜祭</span>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="tl-event">
+                    <div class="tl-dot"></div>
+                    <span class="tl-time">12:35</span>
+                    <div class="tl-head">CTS 着 → レンタカー</div>
+                    <p class="tl-desc">旅の始まり。装備確認。</p>
+                </div>
+                <div class="tl-event tl-highlight">
+                    <div class="tl-dot"></div>
+                    <span class="tl-time">19:00</span>
+                    <div class="tl-head">ジンギスカン「だるま」</div>
+                    <p class="tl-desc">煙にまみれて洗礼を受ける。服は選べ。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card day-card">
+            <div class="day-header">
+                <span class="day-num num-font">02</span>
+                <div class="day-meta">
+                    <span class="day-title">OROLON LINE</span>
+                    <span class="day-date">4.25 SAT / オロロンライン北上</span>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="tl-event">
+                    <div class="tl-dot"></div>
+                    <span class="tl-time">09:00</span>
+                    <div class="tl-head">札幌発 → 日本海</div>
+                    <p class="tl-desc">左はずっと海。信号のない道。</p>
+                </div>
+                <div class="tl-event tl-highlight">
+                    <div class="tl-dot"></div>
+                    <span class="tl-time">16:00</span>
+                    <div class="tl-head">初山別キャンプ</div>
+                    <p class="tl-desc">みさき台公園。夕日と利尻富士の絶景。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card day-card">
+            <div class="day-header">
+                <span class="day-num num-font">03</span>
+                <div class="day-meta">
+                    <span class="day-title">REBUN TREK</span>
+                    <span class="day-date">4.26 SUN / 礼文島トレッキング</span>
+                </div>
+            </div>
+            <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d90479.8837233866!2d140.96350329623838!3d45.36219460010972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0ff461284b3e6f%3A0xc63b15132d966904!2z56S85paH5bO2!5e0!3m2!1sja!2sjp!4v1715000200000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" style="margin-bottom:1.5rem;"></iframe>
+            
+            <div class="timeline">
+                <div class="tl-event tl-highlight">
+                    <div class="tl-dot"></div>
+                    <span class="tl-time">09:00</span>
+                    <div class="tl-head">岬めぐりコース</div>
+                    <p class="tl-desc">スコトン岬〜澄海岬。4時間歩く。絶景保証。</p>
+                </div>
+                <div class="tl-event">
+                    <div class="tl-dot"></div>
+                    <span class="tl-time">14:30</span>
+                    <div class="tl-head">ウニ丼 & 温泉</div>
+                    <p class="tl-desc">運動後の飯は格別。フェリーで稚内へ。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card day-card">
+            <div class="day-header">
+                <span class="day-num num-font">04</span>
+                <div class="day-meta">
+                    <span class="day-title">CAPE SOYA</span>
+                    <span class="day-date">4.27 MON / 最北端〜オホーツク</span>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="tl-event tl-highlight">
+                    <div class="tl-dot"></div>
+                    <span class="tl-time">10:00</span>
+                    <div class="tl-head">宗谷岬</div>
+                    <p class="tl-desc">日本最北端。「白い道」もチェック。</p>
+                </div>
+                <div class="tl-event">
+                    <div class="tl-dot"></div>
+                    <span class="tl-time">18:00</span>
+                    <div class="tl-head">北見焼肉ナイト</div>
+                    <p class="tl-desc">ホルモンの聖地。煙モクモク系。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card day-card">
+            <div class="day-header">
+                <span class="day-num num-font">05</span>
+                <div class="day-meta">
+                    <span class="day-title">HOSOOKA ST.</span>
+                    <span class="day-date">4.28 TUE / 聖地巡礼</span>
+                </div>
+            </div>
+            <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11698.40693245452!2d144.47895964860183!3d43.10931215160683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f7267191636ec6d%3A0xc348003112258836!2z57Sw5bKh6aeF!5e0!3m2!1sja!2sjp!4v1715000300000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" style="margin-bottom:1.5rem;"></iframe>
+
+            <div class="timeline">
+                <div class="tl-event tl-highlight">
+                    <div class="tl-dot"></div>
+                    <span class="tl-time">13:00</span>
+                    <div class="tl-head">細岡駅 到着</div>
+                    <p class="tl-desc">俺の聖地。駅名標とツーショット撮影。</p>
+                </div>
+                <div class="tl-event">
+                    <div class="tl-dot"></div>
+                    <span class="tl-time">19:00</span>
+                    <div class="tl-head">釧路 炉端焼き</div>
+                    <p class="tl-desc">世界三大夕日のあと、炭火で魚を焼く。</p>
+                </div>
+            </div>
+        </div>
+
+         <div class="glass-card day-card">
+            <div class="day-header">
+                <span class="day-num num-font">06-07</span>
+                <div class="day-meta">
+                    <span class="day-title">TOKACHI & RETURN</span>
+                    <span class="day-date">4.29-30 / 帯広〜帰還</span>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="tl-event">
+                    <div class="tl-dot"></div>
+                    <span class="tl-time">DAY 6</span>
+                    <div class="tl-head">帯広 豚丼</div>
+                    <p class="tl-desc">「ぱんちょう」と六花亭本店。</p>
+                </div>
+                <div class="tl-event">
+                    <div class="tl-dot"></div>
+                    <span class="tl-time">DAY 7</span>
+                    <div class="tl-head">新千歳空港温泉</div>
+                    <p class="tl-desc">旅の垢を落として、福岡へ。</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="gear">
+        <div class="section-title"><h3>EQUIPMENT</h3></div>
+        <div class="glass-card">
+            <p style="margin-bottom:1rem; font-size:0.9rem;">4月の北海道は東京の真冬。舐めるな。</p>
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"></div><span>ダウンジャケット・フリース</span></div>
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"></div><span>トレッキングシューズ（必須）</span></div>
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"></div><span>レインウェア上下</span></div>
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"></div><span>モバイルバッテリー</span></div>
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"></div><span>運転免許証（命）</span></div>
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"></div><span>現金（田舎対策）</span></div>
+        </div>
+    </section>
+
+    <section id="music" style="margin-bottom:4rem;">
+        <div class="section-title"><h3>VIBES</h3></div>
+        <div style="border-radius:12px; overflow:hidden; box-shadow:var(--shadow-sharp);">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXaImRpG7HXqp?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </section>
+
 </div>
 
-<div class="content-wrap">
-
-<section class="route-section" id="route">
-  <div class="section-header"><h2>総走行ルート</h2><p>札幌 → 稚内 → 北見 → 釧路 → 帯広 → 札幌</p></div>
-  <div class="route-embed">
-    <iframe src="https://www.google.com/maps/d/embed?mid=1QeWwXG8QjJq-V9z9z9z9z9z9z9&hl=ja" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-  </div>
-  <div style="margin-top:.8rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.5rem">
-    <a href="https://goo.gl/maps/placeholder" target="_blank" class="spot-link" style="justify-content:center">D1-2 札幌→稚内</a>
-    <a href="https://goo.gl/maps/placeholder" target="_blank" class="spot-link" style="justify-content:center">D4 稚内→北見</a>
-    <a href="https://goo.gl/maps/placeholder" target="_blank" class="spot-link" style="justify-content:center">D5 北見→釧路</a>
-    <a href="https://goo.gl/maps/placeholder" target="_blank" class="spot-link" style="justify-content:center">D6 釧路→札幌</a>
-  </div>
-</section>
-<div class="mountain-divider"></div>
-
-<section class="day-section" id="day1">
-  <div class="day-header"><div class="day-circle c-forest"><span class="day-circle-num">1</span><span class="day-circle-label">DAY</span></div><div><div class="day-title">札幌入り・前夜祭</div><div class="day-date">4月24日（金）</div></div></div>
-  <div class="timeline">
-    <div class="tl-item"><div class="tl-time">12:35</div><div class="tl-title">✈ 新千歳空港 着</div><div class="tl-desc">福岡から北海道上陸。レンタカーを確保して札幌へ（約60分）。</div>
-      <div class="info-box"><div class="ib-title">💡 レンタカー</div><div class="ib-text">4月下旬はスタッドレスタイヤ装着期間。4WD車推奨。道東の朝晩は路面凍結の可能性。</div></div></div>
-    <div class="tl-item"><div class="tl-time">15:30</div><div class="tl-title">秀岳荘（アウトドアショップ）</div><div class="tl-desc">ガス缶は飛行機不可。現地調達必須。</div>
-      <div class="spot-card" data-type="shop"><div class="spot-name">秀岳荘 白石店 <span class="spot-tag tag-shop">🏪 ショップ</span></div>
-        <div class="spot-grid"><div class="spot-grid-item"><div class="sg-icon sg-loc">📍</div>札幌市白石区本通1丁目南2-14</div><div class="spot-grid-item"><div class="sg-icon sg-time">🕐</div>10:00〜20:00</div></div>
-        <div class="spot-links"><a href="https://www.shugakuso.com/" target="_blank" class="spot-link">公式 →</a></div></div></div>
-    <div class="tl-item highlight"><div class="tl-time">19:00</div><div class="tl-title">🔥 ジンギスカン「だるま」</div><div class="tl-desc">昭和29年創業。炭火七輪の生マトンと秘伝のタレ。〆は「タレ茶漬け」。</div>
-      <div class="spot-card" data-type="food"><div class="spot-name">成吉思汗 だるま 本店 <span class="spot-tag tag-food">🍖 ジンギスカン</span></div>
-        <div class="spot-info">カウンター14席。予約不可・行列必至。21時以降が狙い目。服に匂いがつくので普段着で。</div>
-        <div class="spot-grid">
-          <div class="spot-grid-item"><div class="sg-icon sg-loc">📍</div>南5条西4 クリスタルビル1F</div>
-          <div class="spot-grid-item"><div class="sg-icon sg-time">🕐</div>17:00〜翌5:00（無休）</div>
-          <div class="spot-grid-item"><div class="sg-icon sg-price">💰</div>¥2,000〜4,000</div>
-          <div class="spot-grid-item"><div class="sg-icon sg-phone">📞</div>011-552-6013</div>
-        </div>
-        <div class="spot-links"><a href="https://sapporo-jingisukan.info/" target="_blank" class="spot-link">公式 →</a><a href="https://tabelog.com/hokkaido/A0101/A010103/1000007/" target="_blank" class="spot-link">食べログ →</a></div>
-        <div class="mini-map"><iframe src="https://maps.google.com/maps?q=成吉思汗だるま本店&output=embed" loading="lazy"></iframe></div></div></div>
-  </div>
-</section><div class="mountain-divider"></div>
-
-<section class="day-section" id="day2">
-  <div class="day-header"><div class="day-circle c-ice"><span class="day-circle-num">2</span><span class="day-circle-label">DAY</span></div><div><div class="day-title">オロロンライン 〜 夕日キャンプ</div><div class="day-date">4月25日（土）約290km</div></div></div>
-  <div class="timeline">
-    <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-title">日本海を北上</div><div class="tl-desc">国道231→232号。信号ほぼなし。右に日本海、左に原野。</div>
-      <div style="text-align:center;margin-top:.5rem"><a href="https://goo.gl/maps/placeholder" target="_blank" class="spot-link">📍 Google Maps →</a></div></div>
-    <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-title">🍣 おびら鰊番屋</div>
-      <div class="spot-card" data-type="food"><div class="spot-name">道の駅 おびら鰊番屋 <span class="spot-tag tag-food">🍣 海鮮</span></div>
-        <div class="spot-info">重要文化財・旧花田家番屋に隣接。海鮮丼・ニシンそば。</div>
-        <div class="spot-grid"><div class="spot-grid-item"><div class="sg-icon sg-loc">📍</div>留萌郡小平町字鬼鹿広富</div><div class="spot-grid-item"><div class="sg-icon sg-time">🕐</div>9:00〜17:00</div></div></div></div>
-    <div class="tl-item highlight"><div class="tl-time">16:00</div><div class="tl-title">⛺ みさき台公園キャンプ場</div><div class="tl-desc">断崖の上、夕日と利尻富士のシルエット。</div>
-      <div class="spot-card" data-type="stay"><div class="spot-name">みさき台公園キャンプ場 <span class="spot-tag tag-stay">⛺ キャンプ</span></div>
-        <div class="spot-grid"><div class="spot-grid-item"><div class="sg-icon sg-loc">📍</div>苫前郡初山別村字豊岬</div><div class="spot-grid-item"><div class="sg-icon sg-price">💰</div>無料〜数百円</div></div></div>
-      <div class="spot-card" data-type="onsen" style="margin-top:.5rem"><div class="spot-name">岬の湯 <span class="spot-tag tag-onsen">♨ 温泉</span></div>
-        <div class="spot-info">徒歩圏内。日本海一望の絶景温泉。</div>
-        <div class="spot-grid"><div class="spot-grid-item"><div class="sg-icon sg-price">💰</div>¥500</div></div></div>
-      <div class="warn-box"><div class="wb-title">⚠ キャンプ注意</div><div class="wb-text">夜間0〜5°C。冬用シュラフ必須。強風地帯なのでペグをしっかり。</div></div></div>
-  </div>
-</section><div class="mountain-divider"></div>
-
-<section class="day-section" id="day3">
-  <div class="day-header"><div class="day-circle c-lavender"><span class="day-circle-num">3</span><span class="day-circle-label">DAY</span></div><div><div class="day-title">礼文島トレッキング</div><div class="day-date">4月26日（日）★ ハイライト</div></div></div>
-  <div class="highlight-banner"><div class="hb-icon">🏔</div><div><div class="hb-label">HIGHLIGHT ①</div><div class="hb-text">最北の離島「礼文島」。右手に青い海、正面に利尻富士。花の浮島を歩く。</div></div></div>
-
-  <h3 style="font-family:Kaisei Decol,serif;font-size:1.1rem;color:var(--forest-deep);margin-bottom:1rem">🥾 岬めぐりコース</h3>
-  <div class="trek-stats">
-    <div class="trek-stat"><div class="trek-stat-val">12.4km</div><div class="trek-stat-label">総距離</div></div>
-    <div class="trek-stat"><div class="trek-stat-val">約5h</div><div class="trek-stat-label">所要時間</div></div>
-    <div class="trek-stat"><div class="trek-stat-val">★★</div><div class="trek-stat-label">中級</div></div>
-    <div class="trek-stat"><div class="trek-stat-val">180m</div><div class="trek-stat-label">最高標高</div></div>
-  </div>
-  <div class="info-box"><div class="ib-title">📋 コース</div><div class="ib-text"><strong>スコトン岬</strong>→江戸屋山道→<strong>ゴロタ岬</strong>(360°絶景)→ゴロタ浜(急下り注意)→鉄府→<strong>澄海岬</strong>(エメラルドの海)→浜中</div></div>
-  <div class="warn-box"><div class="wb-title">⚠ トレッキング注意</div><div class="wb-text">・常に強風。体感温度は気温-5〜10°C<br>・4月は残雪の場合あり。<a href="https://rebun-trail.jp/" target="_blank" style="color:var(--volcanic)">公式サイト</a>で通行確認<br>・浜中→香深港バスは11:50台の次が18時台<br>・コース中トイレは西上泊のみ。水1L以上携行<br>・ヒグマ・ヘビはいない（安心）<br>・携帯圏外エリアあり</div></div>
-
-  <div class="timeline" style="margin-top:1.5rem">
-    <div class="tl-item"><div class="tl-time">05:30</div><div class="tl-title">稚内港集合</div>
-      <div class="spot-card" data-type="spot"><div class="spot-name">ハートランドフェリー <span class="spot-tag tag-spot">🚢 フェリー</span></div>
-        <div class="spot-info">稚内→礼文島 約1時間55分。往復約¥5,400。繁忙期は要予約。</div>
-        <div class="spot-links"><a href="https://www.heartlandferry.jp/" target="_blank" class="spot-link">予約 →</a></div></div></div>
-    <div class="tl-item"><div class="tl-time">06:35→08:30</div><div class="tl-title">フェリーで礼文島へ</div></div>
-    <div class="tl-item highlight"><div class="tl-time">09:00</div><div class="tl-title">🥾 トレッキング開始</div><div class="tl-desc">路線バスでスコトン岬へ。バス時刻はFT窓口で入手。</div></div>
-    <div class="tl-item"><div class="tl-time">14:30</div><div class="tl-title">ゴール → ランチ</div><div class="tl-desc">ウニ丼やホッケ。</div></div>
-    <div class="tl-item"><div class="tl-time">15:30</div><div class="tl-title">♨ うすゆきの湯</div>
-      <div class="spot-card" data-type="onsen"><div class="spot-name">礼文島温泉 うすゆきの湯 <span class="spot-tag tag-onsen">♨ 温泉</span></div>
-        <div class="spot-grid"><div class="spot-grid-item"><div class="sg-icon sg-price">💰</div>¥600</div></div></div></div>
-    <div class="tl-item"><div class="tl-time">17:05→18:55</div><div class="tl-title">礼文島 → 稚内</div></div>
-    <div class="tl-item"><div class="tl-time">19:30</div><div class="tl-title">稚内泊</div>
-      <div class="spot-card" data-type="stay"><div class="spot-name">ドーミーイン稚内 <span class="spot-tag tag-stay">🏨 ホテル</span></div>
-        <div class="spot-info">天然温泉付き。21:30〜23:00 無料「夜鳴きそば」。</div>
-        <div class="spot-links"><a href="https://www.hotespa.net/hotels/wakkanai/" target="_blank" class="spot-link">予約 →</a></div></div></div>
-  </div>
-</section><div class="mountain-divider"></div>
-
-<section class="day-section" id="day4">
-  <div class="day-header"><div class="day-circle c-volcanic"><span class="day-circle-num">4</span><span class="day-circle-label">DAY</span></div><div><div class="day-title">最北端 〜 オホーツク激走</div><div class="day-date">4月27日（月）約320km</div></div></div>
-  <div class="timeline">
-    <div class="tl-item highlight"><div class="tl-time">10:00</div><div class="tl-title">📍 宗谷岬（日本最北端）</div><div class="tl-desc">「日本最北端の地」碑。ホタテ貝殻の「白い道」（約3km）も必見。</div>
-      <div class="spot-card" data-type="spot"><div class="spot-name">宗谷岬 <span class="spot-tag tag-spot">📸 最北端</span></div>
-        <div class="spot-links"><a href="https://goo.gl/maps/placeholder" target="_blank" class="spot-link">Google Maps →</a></div></div></div>
-    <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-title">🐚 猿払ホタテ</div>
-      <div class="spot-card" data-type="food"><div class="spot-name">道の駅 さるふつ公園 <span class="spot-tag tag-food">🐚 ホタテ</span></div>
-        <div class="spot-info">日本一のホタテ水揚量。ホタテバーガーも人気。</div></div></div>
-    <div class="tl-item"><div class="tl-time">午後</div><div class="tl-title">オホーツクライン 250km</div><div class="tl-desc">国道238号。紋別で巨大カニ爪オブジェ。</div>
-      <div style="text-align:center;margin-top:.5rem"><a href="https://goo.gl/maps/placeholder" target="_blank" class="spot-link">📍 Google Maps →</a></div>
-      <div class="warn-box"><div class="wb-title">🦌 エゾシカ注意</div><div class="wb-text">夕暮れ時が最も危険。80km/h以下で走行。衝突すると車全損レベル。</div></div></div>
-    <div class="tl-item highlight"><div class="tl-time">18:00</div><div class="tl-title">🥩 北見焼肉ナイト</div>
-      <div class="spot-card" data-type="food"><div class="spot-name">四条ホルモン <span class="spot-tag tag-food">🥩 焼肉</span></div>
-        <div class="spot-info">創業40年超。冷凍なし仕入れ、1〜2週間熟成。名物サガリと豚ホルモンを「生ダレ」で。ハッカハイボール必飲。食べログ焼肉百名店。</div>
-        <div class="spot-grid">
-          <div class="spot-grid-item"><div class="sg-icon sg-loc">📍</div>北見市北4条西1-14 2F</div>
-          <div class="spot-grid-item"><div class="sg-icon sg-time">🕐</div>17:00〜23:00</div>
-          <div class="spot-grid-item"><div class="sg-icon sg-price">💰</div>¥3,000〜4,000</div>
-          <div class="spot-grid-item"><div class="sg-icon sg-phone">📞</div>0157-23-1927</div>
-        </div>
-        <div class="spot-links"><a href="https://4jo-kitami.com/" target="_blank" class="spot-link">公式 →</a><a href="https://tabelog.com/hokkaido/A0110/A011003/1004371/" target="_blank" class="spot-link">食べログ →</a></div>
-        <div class="mini-map"><iframe src="https://maps.google.com/maps?q=四条ホルモン&output=embed" loading="lazy"></iframe></div></div>
-      <div class="warn-box"><div class="wb-title">⚠ 月曜定休！</div><div class="wb-text">4/27は月曜。四条ホルモンは<strong>月曜定休</strong>。事前に電話確認を。</div></div></div>
-  </div>
-</section><div class="mountain-divider"></div>
-
-<section class="day-section" id="day5">
-  <div class="day-header"><div class="day-circle c-forest"><span class="day-circle-num">5</span><span class="day-circle-label">DAY</span></div><div><div class="day-title">聖地巡礼・細岡駅</div><div class="day-date">4月28日（火）★ ハイライト 約250km</div></div></div>
-  <div class="highlight-banner"><div class="hb-icon">🚉</div><div><div class="hb-label">HIGHLIGHT ②</div><div class="hb-text">釧路湿原の無人駅「細岡駅」— 俺の聖地で写真を撮る。</div></div></div>
-  <div class="timeline">
-    <div class="tl-item highlight"><div class="tl-time">10:30</div><div class="tl-title">🏔 美幌峠</div><div class="tl-desc">屈斜路湖の大パノラマ。「あげいも」を食べつつ休憩。</div>
-      <div class="spot-card" data-type="spot"><div class="spot-name">美幌峠 <span class="spot-tag tag-spot">📸 絶景</span></div>
-        <div class="spot-links"><a href="https://goo.gl/maps/placeholder" target="_blank" class="spot-link">Google Maps →</a></div></div>
-      <div class="warn-box"><div class="wb-title">⚠ 峠注意</div><div class="wb-text">4月下旬でも路面凍結あり。速度落として慎重に。</div></div></div>
-    <div class="tl-item highlight"><div class="tl-time">13:00</div><div class="tl-title">🎯 JR細岡駅</div>
-      <div class="spot-card" data-type="mission"><div class="spot-name">JR細岡駅 <span class="spot-tag tag-mission">🎯 ミッション</span></div>
-        <div class="spot-info">駅名標で撮影 → 裏手の細岡展望台で釧路川・湿原パノラマを眺めてコーヒー。</div>
-        <div class="spot-links"><a href="https://goo.gl/maps/placeholder" target="_blank" class="spot-link">Google Maps →</a></div></div></div>
-    <div class="tl-item"><div class="tl-time">16:00</div><div class="tl-title">🌅 幣舞橋の夕日</div>
-      <div class="spot-card" data-type="spot"><div class="spot-name">幣舞橋 <span class="spot-tag tag-spot">🌅 夕日</span></div>
-        <div class="spot-info">世界三大夕日。日没18:15頃。</div></div></div>
-    <div class="tl-item highlight"><div class="tl-time">19:00</div><div class="tl-title">🐟 炉端焼き</div>
-      <div class="spot-card" data-type="food"><div class="spot-name">炉ばた <span class="spot-tag tag-food">🐟 炉端焼き</span></div>
-        <div class="spot-info">60年以上の歴史。長いヘラで料理を運ぶ名物スタイル。ホッケ・ししゃも・カキ。時価メニュー多く予算多めに。</div>
-        <div class="spot-grid">
-          <div class="spot-grid-item"><div class="sg-icon sg-loc">📍</div>釧路市栄町3丁目1</div>
-          <div class="spot-grid-item"><div class="sg-icon sg-time">🕐</div>17:00〜23:30（日曜定休）</div>
-        </div>
-        <div class="spot-links"><a href="https://goo.gl/maps/placeholder" target="_blank" class="spot-link">Google Maps →</a></div>
-        <div class="mini-map"><iframe src="https://maps.google.com/maps?q=炉ばた&output=embed" loading="lazy"></iframe></div></div>
-      <div class="spot-card" data-type="food" style="margin-top:.5rem"><div class="spot-name">炉ばた煉瓦（代替） <span class="spot-tag tag-food">🐟 セルフ焼き</span></div>
-        <div class="spot-info">明治の煉瓦倉庫。水産工場直営。予約しやすい。</div>
-        <div class="spot-grid"><div class="spot-grid-item"><div class="sg-icon sg-loc">📍</div>釧路市錦町3-5-3</div><div class="spot-grid-item"><div class="sg-icon sg-time">🕐</div>17:00〜23:00</div></div></div></div>
-  </div>
-</section><div class="mountain-divider"></div>
-
-<section class="day-section" id="day6">
-  <div class="day-header"><div class="day-circle c-wood"><span class="day-circle-num">6</span><span class="day-circle-label">DAY</span></div><div><div class="day-title">十勝グルメ → 札幌</div><div class="day-date">4月29日（水・祝）約350km</div></div></div>
-  <div class="timeline">
-    <div class="tl-item highlight"><div class="tl-time">11:30</div><div class="tl-title">🐷 元祖豚丼</div>
-      <div class="spot-card" data-type="food"><div class="spot-name">ぱんちょう <span class="spot-tag tag-food">🐷 豚丼</span></div>
-        <div class="spot-info">1933年創業。豚丼発祥。炭火焼きロース。松(4枚¥1,050)・竹(5枚)・梅(6枚)・華(8枚)。ランクが逆なのは初代女将「梅さん」にちなむ。</div>
-        <div class="spot-grid">
-          <div class="spot-grid-item"><div class="sg-icon sg-loc">📍</div>帯広市西1条南11-19</div>
-          <div class="spot-grid-item"><div class="sg-icon sg-time">🕐</div>11:00〜19:00</div>
-          <div class="spot-grid-item"><div class="sg-icon sg-phone">📞</div>0155-22-1974</div>
-          <div class="spot-grid-item"><div class="sg-icon sg-time">🚫</div>月曜・第1第3火曜定休</div>
-        </div>
-        <div class="spot-links"><a href="https://tabelog.com/hokkaido/A0111/A011101/1000213/" target="_blank" class="spot-link">食べログ →</a></div>
-        <div class="mini-map"><iframe src="https://maps.google.com/maps?q=ぱんちょう&output=embed" loading="lazy"></iframe></div></div></div>
-    <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-title">🍰 六花亭 帯広本店</div>
-      <div class="spot-card" data-type="food"><div class="spot-name">六花亭 帯広本店 <span class="spot-tag tag-food">🍰 スイーツ</span></div>
-        <div class="spot-info">本店限定「サクサクパイ」(¥200)は賞味期限3時間。2F喫茶室でコーヒー無料。</div>
-        <div class="spot-grid"><div class="spot-grid-item"><div class="sg-icon sg-loc">📍</div>帯広市西2条南9-6</div><div class="spot-grid-item"><div class="sg-icon sg-time">🕐</div>9:00〜18:00</div></div>
-        <div class="spot-links"><a href="https://www.rokkatei.co.jp/" target="_blank" class="spot-link">公式 →</a></div></div></div>
-    <div class="tl-item"><div class="tl-time">15:00→18:00</div><div class="tl-title">帯広 → 札幌（高速約3h）</div></div>
-    <div class="tl-item"><div class="tl-time">19:00</div><div class="tl-title">最後の夜 in 札幌</div>
-      <div class="spot-card" data-type="food"><div class="spot-name">すみれ 札幌本店 <span class="spot-tag tag-food">🍜 味噌ラーメン</span></div>
-        <div class="spot-grid"><div class="spot-grid-item"><div class="sg-icon sg-loc">📍</div>豊平区中の島2条4-7-28</div></div>
-        <div class="spot-links"><a href="https://www.sumireya.com/" target="_blank" class="spot-link">公式 →</a></div></div>
-      <div class="spot-card" data-type="food" style="margin-top:.5rem"><div class="spot-name">Suage+ <span class="spot-tag tag-food">🍛 スープカレー</span></div>
-        <div class="spot-grid"><div class="spot-grid-item"><div class="sg-icon sg-loc">📍</div>中央区南4条西5 都志松ビル2F</div></div>
-        <div class="spot-links"><a href="https://suage.info/" target="_blank" class="spot-link">公式 →</a></div></div></div>
-  </div>
-</section><div class="mountain-divider"></div>
-
-<section class="day-section" id="day7">
-  <div class="day-header"><div class="day-circle c-lavender"><span class="day-circle-num">7</span><span class="day-circle-label">DAY</span></div><div><div class="day-title">帰還</div><div class="day-date">4月30日（木）</div></div></div>
-  <div class="timeline">
-    <div class="tl-item"><div class="tl-time">午前</div><div class="tl-title">🦀 札幌場外市場</div>
-      <div class="spot-card" data-type="spot"><div class="spot-name">札幌場外市場 <span class="spot-tag tag-spot">🦀 お土産</span></div>
-        <div class="spot-info">カニ・鮭・いくら。全国配送可。</div>
-        <div class="spot-grid"><div class="spot-grid-item"><div class="sg-icon sg-loc">📍</div>中央区北11条西21</div><div class="spot-grid-item"><div class="sg-icon sg-time">🕐</div>6:00〜17:00</div></div>
-        <div class="spot-links"><a href="https://www.jyogaiichiba.com/" target="_blank" class="spot-link">公式 →</a></div></div></div>
-    <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-title">♨ 新千歳空港温泉</div>
-      <div class="spot-card" data-type="onsen"><div class="spot-name">新千歳空港温泉 <span class="spot-tag tag-onsen">♨ 温泉</span></div>
-        <div class="spot-info">国内線4F。露天風呂・仮眠室あり。手ぶらOK。</div>
-        <div class="spot-grid"><div class="spot-grid-item"><div class="sg-icon sg-price">💰</div>¥1,800</div><div class="spot-grid-item"><div class="sg-icon sg-time">🕐</div>10:00〜翌8:00</div></div></div></div>
-    <div class="tl-item"><div class="tl-time">18:25→21:15</div><div class="tl-title">✈ 新千歳 → 福岡</div><div class="tl-desc">ありがとう北海道。また来る。</div></div>
-  </div>
-</section><div class="mountain-divider"></div>
-
-<section class="weather-section" id="weather">
-  <div class="section-header"><h2>4月下旬の天気</h2><p>北海道の4月 ≈ 東京の3月上旬。夜は0〜5°C。</p></div>
-  <div class="weather-grid">
-    <div class="weather-card"><div class="weather-date">4/24</div><div class="weather-day">札幌</div><div class="weather-icon">⛅</div><div class="weather-temp"><span class="weather-high">11°</span><span class="weather-slash">/</span><span class="weather-low">3°</span></div></div>
-    <div class="weather-card"><div class="weather-date">4/25</div><div class="weather-day">留萌</div><div class="weather-icon">🌤</div><div class="weather-temp"><span class="weather-high">10°</span><span class="weather-slash">/</span><span class="weather-low">2°</span></div></div>
-    <div class="weather-card"><div class="weather-date">4/26</div><div class="weather-day">礼文島</div><div class="weather-icon">🌬</div><div class="weather-temp"><span class="weather-high">8°</span><span class="weather-slash">/</span><span class="weather-low">1°</span></div><div class="weather-note">強風注意</div></div>
-    <div class="weather-card"><div class="weather-date">4/27</div><div class="weather-day">北見</div><div class="weather-icon">☁</div><div class="weather-temp"><span class="weather-high">9°</span><span class="weather-slash">/</span><span class="weather-low">0°</span></div></div>
-    <div class="weather-card"><div class="weather-date">4/28</div><div class="weather-day">釧路</div><div class="weather-icon">🌥</div><div class="weather-temp"><span class="weather-high">9°</span><span class="weather-slash">/</span><span class="weather-low">1°</span></div><div class="weather-note">霧</div></div>
-    <div class="weather-card"><div class="weather-date">4/29</div><div class="weather-day">帯広</div><div class="weather-icon">⛅</div><div class="weather-temp"><span class="weather-high">13°</span><span class="weather-slash">/</span><span class="weather-low">2°</span></div></div>
-    <div class="weather-card"><div class="weather-date">4/30</div><div class="weather-day">札幌</div><div class="weather-icon">🌤</div><div class="weather-temp"><span class="weather-high">12°</span><span class="weather-slash">/</span><span class="weather-low">4°</span></div></div>
-  </div>
-  <p style="text-align:center;margin-top:1rem;font-size:.75rem;color:var(--text-light)">※ 平均値。<a href="https://tenki.jp/forecast/1/" target="_blank" style="color:var(--forest)">tenki.jp</a> で最新確認</p>
-</section><div class="mountain-divider"></div>
-
-<section class="tips-section" id="tips">
-  <div class="section-header"><h2>北海道ドライブの注意点</h2><p>命に関わるので読んで</p></div>
-  <div class="tips-grid">
-    <div class="tip-card"><h3>🦌 エゾシカ飛び出し</h3><p>年間数千件の衝突事故。夕暮れ〜夜明けが最危険。オホーツクライン・釧路湿原は多発地帯。制限速度厳守。</p></div>
-    <div class="tip-card"><h3>🧊 朝晩の路面凍結</h3><p>道東・道北は朝晩氷点下も。橋・トンネル出口はブラックアイスバーン注意。急ブレーキ厳禁。</p></div>
-    <div class="tip-card"><h3>⛽ ガソリンスタンド</h3><p>地方部は間隔50〜100km。18時閉店も。半分切ったら即給油。</p></div>
-    <div class="tip-card"><h3>📶 携帯電波</h3><p>礼文島・オロロンライン一部・釧路湿原で圏外。オフラインマップ事前DL必須。</p></div>
-    <div class="tip-card"><h3>🚗 速度超過</h3><p>直線が快適すぎて飛ばしがち。オービス各所。+20km/hで一発免停。</p></div>
-    <div class="tip-card"><h3>🌊 フェリー欠航</h3><p>強風・波浪で欠航あり。前日夜に運航確認。プランBを用意。</p></div>
-  </div>
-  <div class="emergency-card"><h3>📞 緊急連絡先</h3>
-    <div class="emergency-grid">
-      <div class="emergency-item"><strong>警察：</strong>110</div>
-      <div class="emergency-item"><strong>消防・救急：</strong>119</div>
-      <div class="emergency-item"><strong>JAF：</strong>0570-00-8139</div>
-      <div class="emergency-item"><strong>道路情報：</strong>011-709-2311</div>
-      <div class="emergency-item"><strong>フェリー：</strong><a href="https://www.heartlandferry.jp/" target="_blank" style="color:var(--forest)">heartlandferry.jp</a></div>
-      <div class="emergency-item"><strong>道路情報：</strong><a href="https://info-road.hdb.hkd.mlit.go.jp/" target="_blank" style="color:var(--forest)">北海道地区道路情報</a></div>
-    </div>
-  </div>
-</section>
-<div class="mountain-divider"></div>
-
-<section class="mission-section" id="mission">
-  <div class="section-header"><h2>MISSION BINGO</h2><p>ただの移動じゃない。これは冒険だ。<br>タップしてクリアを記録。</p></div>
-  
-  <div class="mission-progress-bar">
-    <div style="font-size:.8rem;font-weight:700;color:var(--forest)">達成率: <span id="missionCount">0</span> / 12</div>
-    <div class="mission-pb-bg"><div class="mission-pb-fill" id="missionFill"></div></div>
-  </div>
-
-  <div class="mission-grid">
-    <div class="mission-card" onclick="toggleMission(this, 0)">
-      <div class="mission-icon">🚉</div>
-      <div class="mission-title">【聖地】細岡駅</div>
-      <div class="mission-desc">駅名標とツーショット。最重要ミッション。</div>
-      <div class="mission-stamp"></div>
-    </div>
-    <div class="mission-card" onclick="toggleMission(this, 1)">
-      <div class="mission-icon">📸</div>
-      <div class="mission-title">【最北】宗谷岬</div>
-      <div class="mission-desc">日本最北端の碑でポーズ。</div>
-      <div class="mission-stamp"></div>
-    </div>
-    <div class="mission-card" onclick="toggleMission(this, 2)">
-      <div class="mission-icon">🌊</div>
-      <div class="mission-title">【絶景】レブンブルー</div>
-      <div class="mission-desc">礼文島の青い海を目撃せよ。</div>
-      <div class="mission-stamp"></div>
-    </div>
-    <div class="mission-card" onclick="toggleMission(this, 3)">
-      <div class="mission-icon">🍱</div>
-      <div class="mission-title">【完食】ウニ丼</div>
-      <div class="mission-desc">礼文・利尻・稚内どこでも可。</div>
-      <div class="mission-stamp"></div>
-    </div>
-    <div class="mission-card" onclick="toggleMission(this, 4)">
-      <div class="mission-icon">🏪</div>
-      <div class="mission-title">【文化】ホットシェフ</div>
-      <div class="mission-desc">セコマのカツ丼かおにぎりを食う。</div>
-      <div class="mission-stamp"></div>
-    </div>
-    <div class="mission-card" onclick="toggleMission(this, 5)">
-      <div class="mission-icon">🦌</div>
-      <div class="mission-title">【野生】エゾシカ</div>
-      <div class="mission-desc">発見する（衝突はNG）。</div>
-      <div class="mission-stamp"></div>
-    </div>
-    <div class="mission-card" onclick="toggleMission(this, 6)">
-      <div class="mission-icon">🗻</div>
-      <div class="mission-title">【疾走】利尻富士</div>
-      <div class="mission-desc">オロロンラインから撮影。</div>
-      <div class="mission-stamp"></div>
-    </div>
-    <div class="mission-card" onclick="toggleMission(this, 7)">
-      <div class="mission-icon">💨</div>
-      <div class="mission-title">【完食】ジンギスカン</div>
-      <div class="mission-desc">煙まみれになる。</div>
-      <div class="mission-stamp"></div>
-    </div>
-    <div class="mission-card" onclick="toggleMission(this, 8)">
-      <div class="mission-icon">♨</div>
-      <div class="mission-title">【温泉】露天風呂</div>
-      <div class="mission-desc">「あ〜」と声を出す。</div>
-      <div class="mission-stamp"></div>
-    </div>
-    <div class="mission-card" onclick="toggleMission(this, 9)">
-      <div class="mission-icon">🍦</div>
-      <div class="mission-title">【甘味】ソフトクリーム</div>
-      <div class="mission-desc">寒くても現地で食べる。</div>
-      <div class="mission-stamp"></div>
-    </div>
-    <div class="mission-card" onclick="toggleMission(this, 10)">
-      <div class="mission-icon">🚗</div>
-      <div class="mission-title">【制覇】1,000km</div>
-      <div class="mission-desc">総移動距離1,000km突破。</div>
-      <div class="mission-stamp"></div>
-    </div>
-    <div class="mission-card" onclick="toggleMission(this, 11)">
-      <div class="mission-icon">🔰</div>
-      <div class="mission-title">【安全】無事故無違反</div>
-      <div class="mission-desc">レンタカーを無傷で返す。</div>
-      <div class="mission-stamp"></div>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:1.5rem">
-    <button onclick="resetMissions()" style="background:none;border:none;color:var(--text-light);font-size:.7rem;text-decoration:underline;cursor:pointer">リセットする</button>
-  </div>
-</section><div class="mountain-divider"></div>
-
-<section class="music-section" id="music">
-  <div class="section-header"><h2>DRIVING MUSIC</h2><p>助手席DJ用プレイリスト</p></div>
-  <div style="max-width:400px;margin:0 auto;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)">
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXajqE3c02s5r?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</section>
-<div class="mountain-divider"></div>
-
-<section class="gear-section" id="gear">
-  <div class="section-header"><h2>持ち物チェックリスト</h2><p>タップして準備完了にマーク</p></div>
-  <div class="checklist-progress"><span id="progressText">0 / 21 準備完了</span><div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div></div>
-
-  <div class="checklist-category"><h3>🧥 防寒・ウェア</h3><ul class="checklist">
-    <li><div class="cl-check"></div><span class="cl-icon">🧥</span><div class="cl-content"><strong>ダウンジャケット</strong><span class="cl-sub">インナーダウン+シェルのレイヤリング</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">🧶</span><div class="cl-content"><strong>フリース</strong><span class="cl-sub">ジップアップで温度調節</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">🌧</span><div class="cl-content"><strong>レインウェア上下</strong><span class="cl-sub">ゴアテックスなら防寒兼用</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">🧤</span><div class="cl-content"><strong>手袋・ニット帽・ネックウォーマー</strong><span class="cl-sub">礼文島&キャンプに必須</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">👖</span><div class="cl-content"><strong>速乾パンツ</strong><span class="cl-sub">ジーンズNG。トレッキング用推奨</span></div></li>
-  </ul></div>
-
-  <div class="checklist-category"><h3>🥾 トレッキング</h3><ul class="checklist">
-    <li><div class="cl-check"></div><span class="cl-icon">🥾</span><div class="cl-content"><strong>トレッキングシューズ</strong><span class="cl-sub">防水ミドルカット必須</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">🦯</span><div class="cl-content"><strong>トレッキングポール</strong><span class="cl-sub">ゴロタ浜の急下り対策</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">🎒</span><div class="cl-content"><strong>デイパック 20〜30L</strong><span class="cl-sub">レインカバー付き</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">🍙</span><div class="cl-content"><strong>行動食・水1L+</strong><span class="cl-sub">コース中に売店なし</span></div></li>
-  </ul></div>
-
-  <div class="checklist-category"><h3>🚗 ドライブ・一般</h3><ul class="checklist">
-    <li><div class="cl-check"></div><span class="cl-icon">🪪</span><div class="cl-content"><strong>運転免許証</strong><span class="cl-sub">忘れたら旅が終わる</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">💴</span><div class="cl-content"><strong>現金（小銭含む）</strong><span class="cl-sub">田舎の店・自販機・キャンプ場用</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">🕶</span><div class="cl-content"><strong>偏光サングラス</strong><span class="cl-sub">長距離ドライブ&残雪反射対策</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">🔋</span><div class="cl-content"><strong>モバイルバッテリー 20,000mAh+</strong><span class="cl-sub">寒さで電池消耗早い</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">📱</span><div class="cl-content"><strong>オフラインマップDL済</strong><span class="cl-sub">圏外エリア対策</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">💊</span><div class="cl-content"><strong>常備薬・酔い止め</strong><span class="cl-sub">フェリー対策</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">🧴</span><div class="cl-content"><strong>日焼け止め</strong><span class="cl-sub">4月でも紫外線強い</span></div></li>
-  </ul></div>
-
-  <div class="checklist-category"><h3>⛺ キャンプ（Day2）</h3><ul class="checklist">
-    <li><div class="cl-check"></div><span class="cl-icon">⛺</span><div class="cl-content"><strong>テント</strong><span class="cl-sub">3シーズン以上。強風対策</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">🛏</span><div class="cl-content"><strong>シュラフ 快適温度0°C以下</strong><span class="cl-sub">3シーズンでは寒い</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">🔥</span><div class="cl-content"><strong>バーナー+ガス缶</strong><span class="cl-sub">秀岳荘で調達</span></div></li>
-    <li><div class="cl-check"></div><span class="cl-icon">🏕</span><div class="cl-content"><strong>マット R値3.0+</strong><span class="cl-sub">地面からの冷え遮断</span></div></li>
-  </ul></div>
-</section>
-</div>
-
-<footer class="footer">
-  <div class="footer-title">良い旅を 🍻</div>
-  <p>札幌 → 稚内 → 礼文島 → 北見 → 釧路 → 帯広 → 札幌</p>
-  <p style="margin-top:.3rem;opacity:.5">2026.04.24 — 04.30</p>
+<footer>
+    <p class="eng-font" style="font-size:1.5rem; color:white;">HOKKAIDO 2026</p>
+    <p style="font-size:0.8rem; margin-top:0.5rem;">GOOD LUCK.</p>
 </footer>
 
 <script>
-// Nav active
-const sections=document.querySelectorAll(".day-section,.route-section,.weather-section,.gear-section,.tips-section,.mission-section,.music-section");
-const navLinks=document.querySelectorAll(".day-nav a");
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navLinks.forEach(l=>l.classList.toggle("active",l.getAttribute("href")==="#"+id))}})},{rootMargin:"-20% 0px -60% 0px"});
-sections.forEach(s=>obs.observe(s));
-navLinks.forEach(l=>{l.addEventListener("click",e=>{e.preventDefault();const t=document.querySelector(l.getAttribute("href"));if(t){const y=t.getBoundingClientRect().top+window.pageYOffset-100;window.scrollTo({top:y,behavior:"smooth"})}})});
+    // COUNTDOWN
+    const targetDate = new Date("2026-04-24T12:00:00").getTime();
+    setInterval(() => {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+        if(diff < 0) return;
+        document.getElementById("d").innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+        document.getElementById("h").innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+        document.getElementById("m").innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+    }, 1000);
 
-// Scroll reveal
-const tlItems=document.querySelectorAll(".tl-item");
-const fadeObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")})},{threshold:.15});
-tlItems.forEach(i=>fadeObs.observe(i));
+    // BINGO LOGIC (4x4 = 16 items)
+    const BINGO_KEY = "hokkaido_bingo_v2";
+    let bingoState = JSON.parse(localStorage.getItem(BINGO_KEY) || Array(16).fill(false).map(JSON.stringify));
 
-// Filter
-const filterBtns=document.querySelectorAll(".filter-btn");
-const allDaySections=document.querySelectorAll(".day-section");
-const routeSection=document.getElementById("route");
-filterBtns.forEach(btn=>{btn.addEventListener("click",()=>{
-  filterBtns.forEach(b=>b.classList.remove("active"));btn.classList.add("active");
-  const f=btn.dataset.filter;
-  if(f==="all"){
-    document.querySelectorAll(".tl-item,.spot-card,.day-section,.mountain-divider,.highlight-banner,.info-box,.warn-box,.trek-stats,.route-section,.mission-section,.music-section").forEach(e=>e.style.display="");
-    return;
-  }
-  routeSection&&(routeSection.style.display="none");
-  document.querySelectorAll(".highlight-banner,.info-box,.warn-box,.trek-stats,.mission-section,.music-section").forEach(e=>e.style.display="none");
-  if(f==="mission"){
-    allDaySections.forEach(sec=>sec.style.display="none");
-    document.querySelector(".mission-section").style.display="";
-    return;
-  }
-  allDaySections.forEach(sec=>{
-    const cards=sec.querySelectorAll(".spot-card[data-type]");
-    const match=[...cards].filter(c=>c.dataset.type===f);
-    if(!match.length){sec.style.display="none";return}
-    sec.style.display="";
-    sec.querySelectorAll(".tl-item").forEach(tl=>{
-      tl.style.display=tl.querySelector(`[data-type="${f}"]`)?"":"none";
+    function updateBingoUI() {
+        const cells = document.querySelectorAll('.bingo-cell');
+        let count = 0;
+        bingoState.forEach((state, i) => {
+            if (state) {
+                cells[i].classList.add('active');
+                count++;
+            } else {
+                cells[i].classList.remove('active');
+            }
+        });
+        // Update Progress Circle
+        const pct = Math.round((count / 16) * 100);
+        const deg = (pct / 100) * 360;
+        document.getElementById('pgText').innerText = pct + '%';
+        document.getElementById('pgCircle').style.setProperty('--deg', deg + 'deg');
+    }
+
+    function toggleBingo(index) {
+        bingoState[index] = !bingoState[index];
+        localStorage.setItem(BINGO_KEY, JSON.stringify(bingoState));
+        updateBingoUI();
+    }
+
+    function resetBingo() {
+        if(confirm("進捗をリセットしますか？")) {
+            bingoState = Array(16).fill(false);
+            localStorage.setItem(BINGO_KEY, JSON.stringify(bingoState));
+            updateBingoUI();
+        }
+    }
+
+    // CHECKLIST LOGIC
+    function toggleCheck(el) {
+        el.classList.toggle('checked');
+    }
+
+    // Nav Active State
+    const navLinks = document.querySelectorAll('.nav-item');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
     });
-    cards.forEach(c=>{c.style.display=c.dataset.type===f?"":"none"});
-  });
-})});
 
-// Checklist
-const SK="hokkaido_cl";let ck={};
-try{ck=JSON.parse(localStorage.getItem(SK)||"{}")}catch(e){}
-const items=document.querySelectorAll(".checklist li");const total=items.length;
-function upd(){const n=Object.keys(ck).filter(k=>ck[k]).length;document.getElementById("progressText").textContent=n+" / "+total+" 準備完了";document.getElementById("progressFill").style.width=(n/total*100)+"%"}
-items.forEach((li,i)=>{const k="i"+i;if(ck[k])li.classList.add("checked");li.addEventListener("click",()=>{li.classList.toggle("checked");ck[k]=li.classList.contains("checked");try{localStorage.setItem(SK,JSON.stringify(ck))}catch(e){};upd()})});upd();
-
-// Countdown
-const targetDate = new Date("2026-04-24T12:00:00").getTime();
-function updateCountdown() {
-  const now = new Date().getTime();
-  const diff = targetDate - now;
-  if (diff < 0) { document.getElementById("countdown").style.display="none"; return; }
-  
-  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const s = Math.floor((diff % (1000 * 60)) / 1000);
-  
-  document.getElementById("cd-days").textContent = d < 10 ? "0"+d : d;
-  document.getElementById("cd-hours").textContent = h < 10 ? "0"+h : h;
-  document.getElementById("cd-mins").textContent = m < 10 ? "0"+m : m;
-  document.getElementById("cd-secs").textContent = s < 10 ? "0"+s : s;
-}
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-// Missions
-const MSK="hokkaido_mission"; let mk={};
-try{mk=JSON.parse(localStorage.getItem(MSK)||"{}")}catch(e){}
-const mCards = document.querySelectorAll(".mission-card");
-function updMission() {
-  const n = Object.keys(mk).filter(k=>mk[k]).length;
-  const t = mCards.length;
-  document.getElementById("missionCount").textContent = n;
-  document.getElementById("missionFill").style.width = (n/t*100) + "%";
-}
-function toggleMission(el, idx) {
-  const k = "m" + idx;
-  const isComplete = !el.classList.contains("completed");
-  
-  // Animation effect
-  if(isComplete) {
-    el.style.transform = "scale(0.95)";
-    setTimeout(() => el.style.transform = "", 150);
-  }
-  
-  el.classList.toggle("completed", isComplete);
-  mk[k] = isComplete;
-  try{localStorage.setItem(MSK, JSON.stringify(mk))}catch(e){}
-  updMission();
-}
-function resetMissions(){
-  if(confirm("ミッションの進捗をリセットしますか？")){
-    mk={}; try{localStorage.removeItem(MSK)}catch(e){}
-    mCards.forEach(c=>c.classList.remove("completed"));
-    updMission();
-  }
-}
-// Init missions
-mCards.forEach((c, i) => {
-  if(mk["m"+i]) c.classList.add("completed");
-});
-updMission();
+    // Init
+    updateBingoUI();
 </script>
-</body></html>
+</body>
+</html>
